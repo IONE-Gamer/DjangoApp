@@ -42,6 +42,8 @@ class Create():
         if request.method == 'POST':
             form = TaskForm(request.POST)
             if form.is_valid():
+                form = form.save(commit=False)
+                form.author = request.user.username
                 form.save()
                 return redirect('home')
             else:
