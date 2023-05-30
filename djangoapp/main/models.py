@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from django.db import models
 
 
@@ -8,6 +8,7 @@ class User(AbstractUser):
 class Task(models.Model):
     title = models.CharField('Название', max_length=50)
     task = models.TextField('Описание')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)    
 
     def __str__(self):
         return self.title
