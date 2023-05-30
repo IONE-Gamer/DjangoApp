@@ -8,13 +8,23 @@
 
   <h1>Главная страница</h1>
   
+  <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+    <input type="search" class="form-control" placeholder="Поиск..." aria-label="Search">
+  </form>
+
     {% if tasks %}
     {% for task in tasks %}
         <div class="alert alert-warning mt-2">
           <h3>{{ task.title }}</h3>
+<<<<<<< HEAD
           <pre>{{ task.task }}</pre>
           <hr>
           <p>Автор: {{ task.author.username }}</p>
+=======
+          <p>{{ task.task }}</p>
+          <hr>
+          <p>{{ form.author }}</p>
+>>>>>>> 902e982b9e573228b89f8cf9c1b483231edf18c1
         </div>
     {% endfor %}
     {% else %}

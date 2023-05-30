@@ -50,10 +50,15 @@ class Create():
         form = TaskForm(request.POST or None)
         if request.method == 'POST':
             if form.is_valid():
+<<<<<<< HEAD
                 form.author = request.user
                 title_name = form.cleaned_data['title']
                 task_name = form.cleaned_data['task']
                 form = Task(title=title_name, task=task_name, author=form.author)
+=======
+                form = form.save(commit=False)
+                form.author = request.user.username
+>>>>>>> 902e982b9e573228b89f8cf9c1b483231edf18c1
                 form.save()
                 return redirect('home')
             else:

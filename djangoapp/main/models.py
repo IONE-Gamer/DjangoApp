@@ -10,6 +10,9 @@ class Task(models.Model):
     task = models.TextField('Описание')
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)    
 
+    date = models.DateField(u'date', auto_now=True)
+    author = models.ForeignKey(User)
+
     def __str__(self):
         return self.title
     
